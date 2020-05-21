@@ -2,6 +2,8 @@ package com.saurabh.school_api.grades;
 
 import java.util.List;
 
+import com.saurabh.school_api.students.Student;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,9 +17,23 @@ public class GradeController {
     @Autowired
     GradeService gradeService;
 
+    
+
     @RequestMapping("/")
     public String basePage() {
         return gradeService.basePage();
+    }
+
+    @RequestMapping("/students")
+    public List<Student> getAllStudents(){
+        return gradeService.getAllStudents();
+        
+    }
+
+    @RequestMapping("/teachers")
+    public List<Student> getAllTeachers(){
+        return gradeService.getAllTeachers();
+        
     }
 
     @RequestMapping("/grades")
