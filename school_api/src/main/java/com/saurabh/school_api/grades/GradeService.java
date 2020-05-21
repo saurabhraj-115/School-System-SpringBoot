@@ -33,7 +33,7 @@ public class GradeService {
 
 		List<Grade> grades = this.getAllGrades();
 
-        ListIterator<Grade> li = (ListIterator<Grade>) grades.iterator();
+        ListIterator<Grade> li = grades.listIterator();
         while(li.hasNext()){
             Grade grade = (Grade)li.next();
 			String gradeId = grade.getId();
@@ -48,7 +48,7 @@ public class GradeService {
 
 		List<Grade> grades = this.getAllGrades();
 
-        ListIterator<Grade> li = (ListIterator<Grade>) grades.iterator();
+        ListIterator<Grade> li = grades.listIterator();
         while(li.hasNext()){
             Grade grade = (Grade)li.next();
 			String gradeId = grade.getId();
