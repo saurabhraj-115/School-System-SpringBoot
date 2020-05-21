@@ -21,23 +21,23 @@ public class Teacher {
         this.subject = subject;
     }
 
-
     
-
     /**
      * @return String return the id
      */
-    public String getid() {
+    public String getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setid(String id) {
+    public void setId(String id) {
         this.id = id;
     }
 
+
+    
     /**
      * @return String return the name
      */
@@ -52,20 +52,6 @@ public class Teacher {
         this.name = name;
     }
 
-
-    /**
-     * @return String return the id
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(String id) {
-        this.id = id;
-    }
 
     /**
      * @return String return the subject
