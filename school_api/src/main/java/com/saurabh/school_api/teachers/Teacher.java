@@ -2,6 +2,9 @@ package com.saurabh.school_api.teachers;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import com.saurabh.school_api.grades.Grade;
 
 
 @Entity
@@ -12,13 +15,17 @@ public class Teacher {
     private String name;
     private String subject;
 
+    @ManyToOne
+    private Grade grade;
+
     public Teacher() {
     }
 
-    public Teacher(String id , String name, String subject ) {
+    public Teacher(String id , String name, String subject, String gradeId ) {
         this.id = id;
         this.name= name;
         this.subject = subject;
+        this.grade = new Grade(gradeId);
     }
 
     
@@ -65,6 +72,21 @@ public class Teacher {
      */
     public void setSubject(String subject) {
         this.subject = subject;
+    }
+
+
+    /**
+     * @return Grade return the grade
+     */
+    public Grade getGrade() {
+        return grade;
+    }
+
+    /**
+     * @param grade the grade to set
+     */
+    public void setGrade(Grade grade) {
+        this.grade = grade;
     }
 
 }

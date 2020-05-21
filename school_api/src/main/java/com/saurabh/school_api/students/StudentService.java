@@ -12,9 +12,6 @@ public class StudentService {
     @Autowired
     StudentRepository studentRepository;
 
-	public String basePage() {
-		return "Welcome to the School";
-    }
 
 	public List<Student> getAllStudents() {
         List<Student> students = new ArrayList<Student>();        

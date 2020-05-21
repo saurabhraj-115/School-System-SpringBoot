@@ -16,10 +16,7 @@ public class StudentController {
     @Autowired
     StudentService studentService;
 
-    @RequestMapping("/")
-    public String basePage(){
-        return studentService.basePage();
-    }
+    
 
     @RequestMapping("/students")
     public List<Student> getAllStudent(){
