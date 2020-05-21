@@ -13,9 +13,10 @@ public class StudentService {
     StudentRepository studentRepository;
 
 
-	public List<Student> getAllStudents() {
+	public List<Student> getAllStudents(String gradeId) {
         List<Student> students = new ArrayList<Student>();        
-        studentRepository.findAll().forEach(students::add);
+        studentRepository.findByGradeId(gradeId)
+                                .forEach(students::add);
         return students;
     }
     
