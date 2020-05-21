@@ -2,6 +2,8 @@ package com.saurabh.school_api.teachers;
 
 import java.util.List;
 
+import com.saurabh.school_api.grades.Grade;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,29 +19,31 @@ public class TeacherController {
     TeacherService teacherService;
 
 
-    @RequestMapping("/teachers")
-    public List<Teacher> getAllTeachers(){
-        return teacherService.getAllTeachers();
+    @RequestMapping("grades/{gradeId}/teachers")
+    public List<Teacher> getAllTeachers(@PathVariable String gradeId){
+        return teacherService.getAllTeachers(gradeId);
     }
 
-    @RequestMapping("/teachers/{id}")
-    public Teacher getTeacher(@PathVariable String id){
-        return teacherService.getTeacher(id);
+    @RequestMapping("grades/{gradeId}/teachers/{teacherId}")
+    public Teacher getTeacher(@PathVariable("teacherId") String teacherId){
+        return teacherService.getTeacher(teacherId);
     }
 
-    @RequestMapping(method= RequestMethod.POST , value = "/teachers")
-    public void addTeacher(@RequestBody Teacher teacher){
+    @RequestMapping(method= RequestMethod.POST , value = "grades/{gradeId}/teachers")
+    public void addTeacher(@RequestBody Teacher teacher, @PathVariable("gradeId") String gradeId){
+        teacher.setGrade(new Grade(gradeId));
         teacherService.addTeacher(teacher);
     } 
 
-    @RequestMapping(method= RequestMethod.PUT , value = "/teachers/{id}")
-    public void updateTeacher(@RequestBody Teacher teacher , @PathVariable String id){
+    @RequestMapping(method= RequestMethod.PUT , value = "grades/{gradeId}/teachers/{teacherId}")
+    public void updateTeacher(@RequestBody Teacher teacher , @PathVariable("gradeId") String gradeId){
+        teacher.setGrade(new Grade(gradeId));
         teacherService.updateTeacher(teacher);
     }
 
-    @RequestMapping(method = RequestMethod.DELETE , value = "/teachers/{id}")
-        public void deleteTeacher(@PathVariable String id){
-            teacherService.deleteTeacher(id);            
+    @RequestMapping(method = RequestMethod.DELETE , value = "grades/{gradeId}/teachers/{teacherId}")
+        public void deleteTeacher(@PathVariable("teacherId") String teacherId){
+            teacherService.deleteTeacher(teacherId);            
         }
     
     

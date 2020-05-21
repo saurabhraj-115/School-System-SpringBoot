@@ -13,14 +13,16 @@ public class TeacherService {
     TeacherRepository teacherRepository;
 
 	
-	public List<Teacher> getAllTeachers() {
+	public List<Teacher> getAllTeachers(String gradeId) {
+
         List<Teacher> Teachers = new ArrayList<Teacher>();        
-        teacherRepository.findAll().forEach(Teachers::add);
+        teacherRepository.findByGradeId(gradeId)
+                            .forEach(Teachers::add);
         return Teachers;
     }
     
-    public Teacher getTeacher(String id) {
-		return teacherRepository.findById(id).get();
+    public Teacher getTeacher(String teacherId) {
+		return teacherRepository.findById(teacherId).get();
 	}
 
 	public void addTeacher(Teacher Teacher) {
@@ -31,8 +33,8 @@ public class TeacherService {
         teacherRepository.save(Teacher);
     }
 
-	public void deleteTeacher(String id) {
-        teacherRepository.deleteById(id);
+	public void deleteTeacher(String teacherId) {
+        teacherRepository.deleteById(teacherId);
 	}
     
         
