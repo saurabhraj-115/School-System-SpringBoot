@@ -3,6 +3,7 @@ package com.saurabh.school_api.grades;
 import java.util.List;
 
 import com.saurabh.school_api.students.Student;
+import com.saurabh.school_api.teachers.Teacher;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,7 +32,7 @@ public class GradeController {
     }
 
     @RequestMapping("/teachers")
-    public List<Student> getAllTeachers(){
+    public List<Teacher> getAllTeachers(){
         return gradeService.getAllTeachers();
         
     }
