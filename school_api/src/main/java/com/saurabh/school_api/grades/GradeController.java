@@ -47,7 +47,7 @@ public class GradeController {
         return gradeService.getGrade(id);
     }
 
-    @RequestMapping(method = RequestMethod.POST , value = "/grades/")
+    @RequestMapping(method = RequestMethod.POST , value = "/grades")
     public void addGrade(@RequestBody Grade grade){
         gradeService.addGrade(grade);
     }
