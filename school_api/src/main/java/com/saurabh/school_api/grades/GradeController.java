@@ -52,7 +52,7 @@ public class GradeController {
         gradeService.addGrade(grade);
     }
 
-    @RequestMapping(method = RequestMethod.POST , value = "/grades/{id}")
+    @RequestMapping(method = RequestMethod.PUT , value = "/grades/{id}")
     public void updateGrade(@PathVariable String id, @RequestBody Grade grade){
         gradeService.updateGrade(grade, id);
     }
