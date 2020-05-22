@@ -31,7 +31,7 @@ public class StudentController {
     }
 
     @RequestMapping(method= RequestMethod.POST , value = "/grades/{gradeId}/students")
-    public void addStudent(@RequestBody Student student, @PathVariable("gradeID") String gradeId){
+    public void addStudent(@RequestBody Student student, @PathVariable("gradeId") String gradeId){
         student.setGrade(new Grade(gradeId));
         studentService.addStudent(student);
     } 
